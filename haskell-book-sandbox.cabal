@@ -1,8 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.1.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
+--
+-- hash: 3eb25ed29c6bf21da9db931a783f7af9119477a97df926a5bb11a935a0ac11a8
 
 name:           haskell-book-sandbox
 version:        0.1.0.0
@@ -57,4 +59,5 @@ test-suite haskell-book-sandbox-test
   build-depends:
       base >=4.7 && <5
     , haskell-book-sandbox
+    , hspec
   default-language: Haskell2010
