@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: fde0011d87a6960f80e9b47de6fe1b24f403aa7957906104224cb1ec2282b58f
+-- hash: 0dd87469db5f02bd0faaac1744a9b9e074ab704ff691b7654fd66f7267c20526
 
 name:           haskell-book-sandbox
 version:        0.1.0.0
@@ -59,10 +59,9 @@ test-suite haskell-book-sandbox-test
       Paths_haskell_book_sandbox
   hs-source-dirs:
       test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -v1
   build-depends:
-      HUnit
-    , QuickCheck
+      QuickCheck
     , base >=4.7 && <5
     , haskell-book-sandbox
     , hspec

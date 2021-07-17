@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {},
+  "tasks": {
+    "version": "2.0.0",
+    "label": "Run tests",
+    "type": "shell",
+    "command": "stack test --ghc-options=\"-v1\"",
+    "group": "test",
+    "presentation": {
+      "reveal": "always",
+      "panel": "new"
+    }
+  }
+}
