@@ -4,7 +4,12 @@
       "path": "."
     }
   ],
-  "settings": {},
+  "settings": {
+    "files.exclude": {
+      "**/Spec.hs": true,
+      "**/.stack-work": true
+    }
+  },
   "tasks": {
     "version": "2.0.0",
     "label": "Run tests",
