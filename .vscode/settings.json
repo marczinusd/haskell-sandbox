@@ -1,10 +1,14 @@
 {
-    "cSpell.words": [
-        "deps",
-        "executables",
-        "githubuser",
-        "hspec",
-        "quickspec",
-        "rtsopts"
-    ]
+  "cSpell.words": [
+    "concat",
+    "deps",
+    "Dogue",
+    "executables",
+    "Foldl",
+    "foldr",
+    "githubuser",
+    "hspec",
+    "quickspec",
+    "rtsopts"
+  ]
 }
