@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0dd87469db5f02bd0faaac1744a9b9e074ab704ff691b7654fd66f7267c20526
+-- hash: 3b97be1abdfc1c2996a2f8197ce676a0c7885f9d829eb888031aab15d3d2c2f2
 
 name:           haskell-book-sandbox
 version:        0.1.0.0
@@ -27,7 +27,14 @@ source-repository head
 
 library
   exposed-modules:
+      Chapter10
+      Chapter11
       Chapter2
+      Chapter3
+      Chapter6
+      Chapter7
+      Chapter8
+      Chapter9
       Lib
   other-modules:
       Paths_haskell_book_sandbox
