@@ -3,8 +3,9 @@
 
 module Chapter11 where
 
-import           GHC.Unicode (toUpper)
+import           GHC.Unicode (toUpper, isUpper, toLower)
 import           Chapter9 (capitalize)
+import           Data.List
 
 data PugType = PugData
 
@@ -207,3 +208,53 @@ main = do
   testInorder
   testPostorder
   testFoldTree
+
+-- DaPhone
+convo :: [String]
+convo = [ "Wanna play 20 questions"
+        , "Ya"
+        , "U 1st haha"
+        , "Lol ok. Have u ever tasted alcohol"
+        , "Lol ya"
+        , "Wow ur cool haha. Ur turn"
+        , "Ok. Do u think I am pretty Lol"
+        , "Lol ya"
+        , "Just making sure rofl ur turn"]
+
+-- validButtons = "1234567890*#"
+type Digit = Char
+
+-- Valid presses: 1 and up
+type Presses = Int
+
+data DaPhone = DaPhone
+
+buttons :: [[Char]]
+buttons = [ "1"
+          , "abc2"
+          , "def3"
+          , "ghi4"
+          , "jkl5"
+          , "mno6"
+          , "pqrs7"
+          , "tuv8"
+          , "wxyz9"
+          , "*"
+          , "+_0"
+          , ".,#"]
+
+reverseTaps :: Char -> [(Digit, Presses)]
+reverseTaps c = if isUpper c
+                then [('*', 1), (digit, len)]
+                else [(digit, len)]
+  where
+    symbols = head $ filter (elem (toLower c)) buttons
+
+    len = case elemIndex (toLower c) symbols of
+      Just x  -> x + 1
+      Nothing -> error "Oh no"
+
+    digit = symbols !! (length symbols - 1)
+
+cellPhonesDead :: DaPhone -> String -> [(Digit, Presses)]
+cellPhonesDead _ = concatMap reverseTaps
