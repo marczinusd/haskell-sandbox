@@ -10,19 +10,14 @@ extra-source-files:
   - README.md
   - ChangeLog.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description: Please see the README on GitHub at <https://github.com/marczinusd/haskell-book-sandbox#readme>
 
 dependencies:
   - base >= 4.7 && < 5
 library:
   source-dirs: src
+  dependencies:
+    - containers
 
 executables:
   haskell-book-sandbox-exe:
@@ -49,3 +44,4 @@ tests:
       - hspec
       - hspec-core
       - QuickCheck
+      - containers

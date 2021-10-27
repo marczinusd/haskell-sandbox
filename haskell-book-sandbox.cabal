@@ -3,8 +3,6 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: c1c23ff54e567b2d7bad8e6af95b4d7ef63a9c2485f9c01c9ee02e602fe80416
 
 name:           haskell-book-sandbox
 version:        0.1.0.0
@@ -30,6 +28,7 @@ library
       Chapter10
       Chapter11
       Chapter12
+      Chapter14
       Chapter2
       Chapter3
       Chapter6
@@ -43,6 +42,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , containers
   default-language: Haskell2010
 
 executable haskell-book-sandbox-exe
@@ -61,9 +61,8 @@ test-suite haskell-book-sandbox-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      ASpec
+      Chapter14Spec
       Chapter2Spec
-      SomeSpec
       Paths_haskell_book_sandbox
   hs-source-dirs:
       test
@@ -71,6 +70,7 @@ test-suite haskell-book-sandbox-test
   build-depends:
       QuickCheck
     , base >=4.7 && <5
+    , containers
     , haskell-book-sandbox
     , hspec
     , hspec-core

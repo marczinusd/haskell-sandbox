@@ -1,6 +1,7 @@
 module Main where
 
-import Lib ( someFunc )
+import           Lib (someFunc)
+import           Chapter14 (morseMain)
 
 main :: IO ()
-main = someFunc
+main = morseMain
