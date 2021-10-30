@@ -18,6 +18,8 @@ library:
   source-dirs: src
   dependencies:
     - containers
+    - random
+    - transformers
 
 executables:
   haskell-book-sandbox-exe:

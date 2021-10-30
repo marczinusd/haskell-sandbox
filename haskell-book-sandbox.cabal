@@ -34,6 +34,8 @@ library
       Chapter17
       Chapter18
       Chapter2
+      Chapter22
+      Chapter23
       Chapter3
       Chapter6
       Chapter7
@@ -47,6 +49,8 @@ library
   build-depends:
       base >=4.7 && <5
     , containers
+    , random
+    , transformers
   default-language: Haskell2010
 
 executable haskell-book-sandbox-exe
