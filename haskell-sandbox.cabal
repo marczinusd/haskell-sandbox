@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c58342f87d5ad17c8db44f99f26408ad724e14d067c2a47ac1b54115fdc8735b
+-- hash: ee23cd70795b03ff2f541fb60026274f61c046a7cffe998aef01581ff62c454e
 
 name:           haskell-sandbox
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 
 library
   exposed-modules:
+      Exercism.HelloWorld
       Exercism.Test
       HaskellBook.Chapter10
       HaskellBook.Chapter11
@@ -74,6 +75,7 @@ test-suite exercism-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      HelloWorldSpec
       TestSpec
       Paths_haskell_sandbox
   hs-source-dirs:
