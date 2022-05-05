@@ -1,6 +1,6 @@
-name: haskell-book-sandbox
+name: haskell-sandbox
 version: 0.1.0.0
-github: "marczinusd/haskell-book-sandbox"
+github: "marczinusd/haskell-sandbox"
 license: BSD3
 author: "David Marczinus"
 maintainer: "marczinus dot david at gmail dot com"
@@ -10,7 +10,7 @@ extra-source-files:
   - README.md
   - ChangeLog.md
 
-description: Please see the README on GitHub at <https://github.com/marczinusd/haskell-book-sandbox#readme>
+description: Please see the README on GitHub at <https://github.com/marczinusd/haskell-sandbox#readme>
 
 dependencies:
   - base >= 4.7 && < 5
@@ -22,7 +22,7 @@ library:
     - transformers
 
 executables:
-  haskell-book-sandbox-exe:
+  haskell-sandbox-exe:
     main: Main.hs
     source-dirs: app
     ghc-options:
@@ -30,19 +30,33 @@ executables:
       - -rtsopts
       - -with-rtsopts=-N
     dependencies:
-      - haskell-book-sandbox
+      - haskell-sandbox
 
 tests:
-  haskell-book-sandbox-test:
+  haskell-book-test:
     main: Spec.hs
-    source-dirs: test
+    source-dirs: test/haskell-book
     ghc-options:
       - -threaded
       - -rtsopts
       - -with-rtsopts=-N
       - -v1
     dependencies:
-      - haskell-book-sandbox
+      - haskell-sandbox
+      - hspec
+      - hspec-core
+      - QuickCheck
+      - containers
+  haskell-course-test:
+    main: Spec.hs
+    source-dirs: test/haskell-book
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+      - -v1
+    dependencies:
+      - haskell-sandbox
       - hspec
       - hspec-core
       - QuickCheck
