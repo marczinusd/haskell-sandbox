@@ -1,4 +1,4 @@
-module Chapter6 where
+module HaskellBook.Chapter6 where
 
 import           GHC.Base ()
 import           Data.List

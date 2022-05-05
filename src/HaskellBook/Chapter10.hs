@@ -1,4 +1,4 @@
-module Chapter10 where
+module HaskellBook.Chapter10 where
 
 xs = map show [1 .. 5]
 

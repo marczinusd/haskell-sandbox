@@ -1,4 +1,4 @@
-module Chapter7 where
+module HaskellBook.Chapter7 where
 
 f :: (a, b, c) -> (d, e, f) -> ((a, d), (c, f))
 f (a, b, c) (d, e, f) = ((a, d), (c, f))

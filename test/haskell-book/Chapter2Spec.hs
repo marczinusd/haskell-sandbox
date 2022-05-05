@@ -1,6 +1,6 @@
 module Chapter2Spec where
 
-import           Chapter2 (someStuff)
+import           HaskellBook.Chapter2 (someStuff)
 import           Test.Hspec (describe, it, shouldBe, Spec)
 
 spec :: Spec

@@ -1,4 +1,4 @@
-module Chapter8 where
+module HaskellBook.Chapter8 where
 
 factorial :: Integer -> Integer
 factorial 0 = 1

@@ -1,4 +1,4 @@
-module Chapter3 where
+module HaskellBook.Chapter3 where
 
 topLevelFunction :: Integer -> Integer
 topLevelFunction x = x + woot + topLevelValue

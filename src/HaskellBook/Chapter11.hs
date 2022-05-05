@@ -1,10 +1,10 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE FlexibleInstances #-}
 
-module Chapter11 where
+module HaskellBook.Chapter11 where
 
 import           GHC.Unicode (toUpper, isUpper, toLower)
-import           Chapter9 (capitalize)
+import           HaskellBook.Chapter9 (capitalize)
 import           Data.List
 
 data PugType = PugData

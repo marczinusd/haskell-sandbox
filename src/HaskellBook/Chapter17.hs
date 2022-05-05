@@ -1,4 +1,4 @@
-module Chapter17 where
+module HaskellBook.Chapter17 where
 
 import           Data.List (elemIndex)
 

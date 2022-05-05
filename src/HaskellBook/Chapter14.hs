@@ -1,4 +1,4 @@
-module Chapter14 where
+module HaskellBook.Chapter14 where
 
 import qualified Data.Map as M
 import           Control.Monad (forever, when)

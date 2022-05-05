@@ -1,4 +1,4 @@
-module Chapter22 where
+module HaskellBook.Chapter22 where
 
 import           Control.Applicative
 import           Data.Char

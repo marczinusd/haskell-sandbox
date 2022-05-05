@@ -1,4 +1,4 @@
-module Chapter16 where
+module HaskellBook.Chapter16 where
 
 replaceWithP :: b -> Char
 replaceWithP = const 'p'

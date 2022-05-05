@@ -1,8 +1,8 @@
 {-# LANGUAGE TupleSections #-}
 
-module Chapter15 where
+module HaskellBook.Chapter15 where
 
-import           Data.Monoid
+import           Data.Monoid (Sum(Sum))
 
 class Monoid' m where
   mempty' :: m

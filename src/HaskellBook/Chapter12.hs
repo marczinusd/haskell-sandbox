@@ -1,4 +1,4 @@
-module Chapter12 where
+module HaskellBook.Chapter12 where
 
 notThe :: String -> Maybe String
 notThe "the" = Nothing

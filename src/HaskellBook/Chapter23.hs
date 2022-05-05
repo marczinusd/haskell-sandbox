@@ -1,4 +1,4 @@
-module Chapter23 where
+module HaskellBook.Chapter23 where
 
 import           System.Random
 import           Control.Applicative (liftA3)

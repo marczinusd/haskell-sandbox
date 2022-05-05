@@ -1,4 +1,4 @@
-module Chapter18 where
+module HaskellBook.Chapter18 where
 
 import           Control.Monad (join)
 

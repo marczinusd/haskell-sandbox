@@ -1,4 +1,4 @@
-module Chapter9 where
+module HaskellBook.Chapter9 where
 
 import Data.Char (isSpace, isUpper, toUpper)
 

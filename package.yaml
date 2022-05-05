@@ -49,7 +49,21 @@ tests:
       - containers
   haskell-course-test:
     main: Spec.hs
-    source-dirs: test/haskell-book
+    source-dirs: test/haskell-course
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+      - -v1
+    dependencies:
+      - haskell-sandbox
+      - hspec
+      - hspec-core
+      - QuickCheck
+      - containers
+  exercism-test:
+    main: Spec.hs
+    source-dirs: test/exercism
     ghc-options:
       - -threaded
       - -rtsopts

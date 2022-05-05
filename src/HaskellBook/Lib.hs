@@ -1,4 +1,4 @@
-module Lib (someFunc, greet) where
+module HaskellBook.Lib (someFunc, greet) where
 
 import           HaskellBook.Test (hello)
 

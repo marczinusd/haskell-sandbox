@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7b67ca2e9572a32a236eb8e549c7e9837d44384db58a49c12a3c4bd6ab7c13ce
+-- hash: c58342f87d5ad17c8db44f99f26408ad724e14d067c2a47ac1b54115fdc8735b
 
 name:           haskell-sandbox
 version:        0.1.0.0
@@ -27,25 +27,26 @@ source-repository head
 
 library
   exposed-modules:
-      Chapter10
-      Chapter11
-      Chapter12
-      Chapter14
-      Chapter15
-      Chapter16
-      Chapter17
-      Chapter18
-      Chapter2
-      Chapter22
-      Chapter23
-      Chapter3
-      Chapter6
-      Chapter7
-      Chapter8
-      Chapter9
+      Exercism.Test
+      HaskellBook.Chapter10
+      HaskellBook.Chapter11
+      HaskellBook.Chapter12
+      HaskellBook.Chapter14
+      HaskellBook.Chapter15
+      HaskellBook.Chapter16
+      HaskellBook.Chapter17
+      HaskellBook.Chapter18
+      HaskellBook.Chapter2
+      HaskellBook.Chapter22
+      HaskellBook.Chapter23
+      HaskellBook.Chapter3
+      HaskellBook.Chapter6
+      HaskellBook.Chapter7
+      HaskellBook.Chapter8
+      HaskellBook.Chapter9
+      HaskellBook.Lib
       HaskellBook.Test
       HaskellCourse.Test
-      Lib
   other-modules:
       Paths_haskell_sandbox
   hs-source-dirs:
@@ -67,6 +68,24 @@ executable haskell-sandbox-exe
   build-depends:
       base >=4.7 && <5
     , haskell-sandbox
+  default-language: Haskell2010
+
+test-suite exercism-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      TestSpec
+      Paths_haskell_sandbox
+  hs-source-dirs:
+      test/exercism
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -v1
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , containers
+    , haskell-sandbox
+    , hspec
+    , hspec-core
   default-language: Haskell2010
 
 test-suite haskell-book-test
@@ -92,11 +111,10 @@ test-suite haskell-course-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
-      Chapter14Spec
-      Chapter2Spec
+      TestSpec
       Paths_haskell_sandbox
   hs-source-dirs:
-      test/haskell-book
+      test/haskell-course
   ghc-options: -threaded -rtsopts -with-rtsopts=-N -v1
   build-depends:
       QuickCheck

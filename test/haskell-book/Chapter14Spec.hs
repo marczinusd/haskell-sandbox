@@ -1,11 +1,12 @@
 module Chapter14Spec where
 
 import           Test.Hspec (describe, it, shouldBe, Spec)
-import           Chapter14
+import           HaskellBook.Chapter14 (charToMorse, dividedBy, letterToMorse
+                                      , morseToChar, myAdd, Morse)
 import           Test.QuickCheck.Property (Testable(property))
 import qualified Data.Map as M
 import           Test.QuickCheck
- 
+
 allowedChars :: [Char]
 allowedChars = M.keys letterToMorse
 
