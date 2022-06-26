@@ -1,14 +1,4 @@
 {
-  "cSpell.words": [
-    "concat",
-    "deps",
-    "Dogue",
-    "executables",
-    "Foldl",
-    "foldr",
-    "githubuser",
-    "hspec",
-    "quickspec",
-    "rtsopts"
-  ]
+  "haskell.formattingProvider": "fourmolu",
+  "haskell.manageHLS": "GHCup"
 }
