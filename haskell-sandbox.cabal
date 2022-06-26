@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ee23cd70795b03ff2f541fb60026274f61c046a7cffe998aef01581ff62c454e
+-- hash: 6df2195c4a788e71645600928b8cc684465bb5b68c5c378e92c3398f26be43c9
 
 name:           haskell-sandbox
 version:        0.1.0.0
@@ -47,7 +47,13 @@ library
       HaskellBook.Chapter9
       HaskellBook.Lib
       HaskellBook.Test
-      HaskellCourse.Test
+      HaskellHutton.Chapter1
+      HaskellHutton.Chapter3
+      HaskellHutton.Chapter4
+      HaskellHutton.Chapter5
+      HaskellHutton.Chapter6
+      HaskellInDepth.Chapter1
+      HaskellMooc.Lecture1
   other-modules:
       Paths_haskell_sandbox
   hs-source-dirs:
