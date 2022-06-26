@@ -35,5 +35,5 @@ x''''' = cattyConny (flippy "Pugs" "are") "awesome"
 
 mc91 :: Integer -> Integer
 mc91 n
-  | n > 100 = n - 10
-  | otherwise = mc91 (mc91 (n + 11))
+    | n > 100 = n - 10
+    | otherwise = mc91 (mc91 (n + 11))

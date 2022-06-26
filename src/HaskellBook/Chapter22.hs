@@ -1,7 +1,7 @@
 module HaskellBook.Chapter22 where
 
-import           Control.Applicative
-import           Data.Char
+import Control.Applicative
+import Data.Char
 
 boop :: Integer -> Integer
 boop = (* 2)
@@ -23,9 +23,9 @@ duwop = liftA2 (+) boop doop
 
 boopDoop :: Integer -> Integer
 boopDoop = do
-  a <- boop
-  b <- doop
-  return (a + b)
+    a <- boop
+    b <- doop
+    return (a + b)
 
 cap :: [Char] -> [Char]
 cap = map toUpper

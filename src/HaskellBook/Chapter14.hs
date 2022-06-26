@@ -1,12 +1,12 @@
 module HaskellBook.Chapter14 where
 
+import Control.Monad (forever, when)
+import Data.List (intercalate)
 import qualified Data.Map as M
-import           Control.Monad (forever, when)
-import           Data.List (intercalate)
-import           Data.Traversable (traverse)
-import           System.Environment (getArgs)
-import           System.Exit (exitFailure, exitSuccess)
-import           System.IO (hGetLine, hIsEOF, stdin, isEOF)
+import Data.Traversable (traverse)
+import System.Environment (getArgs)
+import System.Exit (exitFailure, exitSuccess)
+import System.IO (hGetLine, hIsEOF, isEOF, stdin)
 
 type Morse = String
 
@@ -17,47 +17,49 @@ dividedBy :: Integral a => a -> a -> (a, a)
 dividedBy num denom = go num denom 0
   where
     go n d count
-      | n < d = (count, n)
-      | otherwise = go (n - d) d (count + 1)
+        | n < d = (count, n)
+        | otherwise = go (n - d) d (count + 1)
 
 letterToMorse :: (M.Map Char Morse)
-letterToMorse = M.fromList
-  [ ('a', ".-")
-  , ('b', "-...")
-  , ('c', "-.-.")
-  , ('d', "-..")
-  , ('e', ".")
-  , ('f', "..-.")
-  , ('g', "--.")
-  , ('h', "....")
-  , ('i', "..")
-  , ('j', ".---")
-  , ('k', "-.-")
-  , ('l', ".-..")
-  , ('m', "--")
-  , ('n', "-.")
-  , ('o', "---")
-  , ('p', ".--.")
-  , ('q', "--.-")
-  , ('r', ".-.")
-  , ('s', "...")
-  , ('t', "-")
-  , ('u', "..-")
-  , ('v', "...-")
-  , ('w', ".--")
-  , ('x', "-..-")
-  , ('y', "-.--")
-  , ('z', "--..")
-  , ('1', ".----")
-  , ('2', "..---")
-  , ('3', "...--")
-  , ('4', "....-")
-  , ('5', ".....")
-  , ('6', "-....")
-  , ('7', "--...")
-  , ('8', "---..")
-  , ('9', "----.")
-  , ('0', "-----")]
+letterToMorse =
+    M.fromList
+        [ ('a', ".-")
+        , ('b', "-...")
+        , ('c', "-.-.")
+        , ('d', "-..")
+        , ('e', ".")
+        , ('f', "..-.")
+        , ('g', "--.")
+        , ('h', "....")
+        , ('i', "..")
+        , ('j', ".---")
+        , ('k', "-.-")
+        , ('l', ".-..")
+        , ('m', "--")
+        , ('n', "-.")
+        , ('o', "---")
+        , ('p', ".--.")
+        , ('q', "--.-")
+        , ('r', ".-.")
+        , ('s', "...")
+        , ('t', "-")
+        , ('u', "..-")
+        , ('v', "...-")
+        , ('w', ".--")
+        , ('x', "-..-")
+        , ('y', "-.--")
+        , ('z', "--..")
+        , ('1', ".----")
+        , ('2', "..---")
+        , ('3', "...--")
+        , ('4', "....-")
+        , ('5', ".....")
+        , ('6', "-....")
+        , ('7', "--...")
+        , ('8', "---..")
+        , ('9', "----.")
+        , ('0', "-----")
+        ]
 
 morseToLetter :: M.Map Morse Char
 morseToLetter = M.foldrWithKey (flip M.insert) M.empty letterToMorse
@@ -72,53 +74,53 @@ morseToChar :: Morse -> Maybe Char
 morseToChar m = M.lookup m morseToLetter
 
 convertToMorse :: IO ()
-convertToMorse = forever
-  $ do
-    weAreDone <- isEOF
-    when weAreDone exitSuccess
-    line <- getLine
-    convertLine line
+convertToMorse = forever $
+    do
+        weAreDone <- isEOF
+        when weAreDone exitSuccess
+        line <- getLine
+        convertLine line
   where
     convertLine line = do
-      let morse = stringToMorse line
-      case morse of
-        (Just str) -> putStrLn (unwords str)
-        Nothing    -> do
-          putStrLn $ "Error: " ++ line
-          exitFailure
+        let morse = stringToMorse line
+        case morse of
+            (Just str) -> putStrLn (unwords str)
+            Nothing -> do
+                putStrLn $ "Error: " ++ line
+                exitFailure
 
 convertFromMorse :: IO ()
-convertFromMorse = forever
-  $ do
-    weAreDone <- isEOF
-    when weAreDone exitSuccess
-    line <- getLine
-    convertLine line
+convertFromMorse = forever $
+    do
+        weAreDone <- isEOF
+        when weAreDone exitSuccess
+        line <- getLine
+        convertLine line
   where
     convertLine line = do
-      let decoded :: Maybe String
-          decoded = traverse morseToChar (words line)
-      case decoded of
-        Nothing -> do
-          putStrLn $ "Error: " ++ line
-          exitFailure
-        Just s  -> putStrLn s
+        let decoded :: Maybe String
+            decoded = traverse morseToChar (words line)
+        case decoded of
+            Nothing -> do
+                putStrLn $ "Error: " ++ line
+                exitFailure
+            Just s -> putStrLn s
 
 morseMain :: IO ()
 morseMain = do
-  mode <- getArgs
-  case mode of
-    [arg] -> case arg of
-      "from" -> convertFromMorse
-      "to"   -> convertToMorse
-      _      -> argError
-    _     -> argError
+    mode <- getArgs
+    case mode of
+        [arg] -> case arg of
+            "from" -> convertFromMorse
+            "to" -> convertToMorse
+            _ -> argError
+        _ -> argError
   where
     argError = do
-      putStrLn
-        "Please specify the\
+        putStrLn
+            "Please specify the\
             \ first argument\
             \ as being 'from' or\
             \ 'to' morse,\
             \ such as: morse to"
-      exitFailure
+        exitFailure

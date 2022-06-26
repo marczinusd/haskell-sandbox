@@ -1,6 +1,6 @@
 module HaskellBook.Lib (someFunc, greet) where
 
-import           HaskellBook.Test (hello)
+import HaskellBook.Test (hello)
 
 someFunc :: IO ()
 someFunc = putStrLn "someFunc"

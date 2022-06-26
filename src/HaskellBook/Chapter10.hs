@@ -6,7 +6,7 @@ y = foldr (\x y -> concat ["(", x, "+", y, ")"]) "0" xs
 
 myFoldl :: (a -> b -> b) -> b -> [a] -> b
 myFoldl f acc [] = acc
-myFoldl f acc (x:xs) = myFoldl f (f x acc) xs
+myFoldl f acc (x : xs) = myFoldl f (f x acc) xs
 
 stops = "pbtdkg"
 

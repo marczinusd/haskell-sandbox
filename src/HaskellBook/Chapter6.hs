@@ -1,102 +1,107 @@
 module HaskellBook.Chapter6 where
 
-import           GHC.Base ()
-import           Data.List
-import           GHC.Real (fromIntegral)
+import Data.List
+import GHC.Base ()
+import GHC.Real (fromIntegral)
 
-data Trivial = Trivial'
-             | Cica
+data Trivial
+    = Trivial'
+    | Cica
 
 instance Eq Trivial where
-  Trivial' == Trivial' = True
-  Cica == Trivial' = False
-  Trivial' == Cica = False
-  Cica == Cica = True
+    Trivial' == Trivial' = True
+    Cica == Trivial' = False
+    Trivial' == Cica = False
+    Cica == Cica = True
 
 instance Show Trivial where
-  show Trivial' = "Trivial"
-  show Cica = "Cica"
+    show Trivial' = "Trivial"
+    show Cica = "Cica"
 
 instance Ord Trivial where
-  (<=) Trivial' Cica = True
-  (<=) Cica Trivial' = False
-  (<=) Cica Cica = (==) Cica Cica
-  (<=) Trivial' Trivial' = (==) Trivial' Trivial'
+    (<=) Trivial' Cica = True
+    (<=) Cica Trivial' = False
+    (<=) Cica Cica = (==) Cica Cica
+    (<=) Trivial' Trivial' = (==) Trivial' Trivial'
 
-data DayOfWeek = Mon
-               | Tue
-               | Weds
-               | Thu
-               | Fri
-               | Sat
-               | Sun
+data DayOfWeek
+    = Mon
+    | Tue
+    | Weds
+    | Thu
+    | Fri
+    | Sat
+    | Sun
 
 instance Eq DayOfWeek where
-  (==) Mon Mon = True
-  (==) Tue Tue = True
-  (==) Weds Weds = True
-  (==) Thu Thu = True
-  (==) Fri Fri = True
-  (==) Sat Sat = True
-  (==) Sun Sun = True
-  (==) _ _ = False
+    (==) Mon Mon = True
+    (==) Tue Tue = True
+    (==) Weds Weds = True
+    (==) Thu Thu = True
+    (==) Fri Fri = True
+    (==) Sat Sat = True
+    (==) Sun Sun = True
+    (==) _ _ = False
 
 data Date = Date DayOfWeek Int
 
 instance Eq Date where
-  (==) (Date weekday dayOfMonth) (Date weekday' dayOfMonth') =
-    weekday == weekday' && dayOfMonth == dayOfMonth'
+    (==) (Date weekday dayOfMonth) (Date weekday' dayOfMonth') =
+        weekday == weekday' && dayOfMonth == dayOfMonth'
 
 -- Exercises: Eq Instances
 newtype TisAnInteger = TisAn Integer
 
 instance Eq TisAnInteger where
-  (==) (TisAn integer) (TisAn integer') = integer == integer'
+    (==) (TisAn integer) (TisAn integer') = integer == integer'
 
 data TwoIntegers = Two Integer Integer
 
 instance Eq TwoIntegers where
-  (==) (Two first second) (Two first' second') =
-    first == first' && second == second'
+    (==) (Two first second) (Two first' second') =
+        first == first' && second == second'
 
-data StringOrInt = TisAnInt Int
-                 | TisAString String
-  deriving Show
+data StringOrInt
+    = TisAnInt Int
+    | TisAString String
+    deriving (Show)
 
 instance Eq StringOrInt where
-  (==) (TisAnInt int) (TisAnInt int') = int == int'
-  (==) (TisAString str) (TisAString str') = str == str'
-  (==) _ _ = False
+    (==) (TisAnInt int) (TisAnInt int') = int == int'
+    (==) (TisAString str) (TisAString str') = str == str'
+    (==) _ _ = False
 
 data Pair a = Pair a a
-  deriving Show
+    deriving (Show)
 
 instance Eq a => Eq (Pair a) where
-  (==) (Pair a b) (Pair a' b') = a == a' && b == b'
+    (==) (Pair a b) (Pair a' b') = a == a' && b == b'
 
 data Tuple a b = Tuple a b
-  deriving Show
+    deriving (Show)
 
 instance (Eq a, Eq b) => Eq (Tuple a b) where
-  (==) (Tuple a b) (Tuple a' b') = a == a' && b == b'
+    (==) (Tuple a b) (Tuple a' b') = a == a' && b == b'
 
-data Which a = ThisOne a
-             | ThatOne a
-  deriving Show
+data Which a
+    = ThisOne a
+    | ThatOne a
+    deriving (Show)
 
 instance Eq a => Eq (Which a) where
-  (==) (ThisOne a) (ThisOne a') = a == a'
-  (==) (ThatOne a) (ThatOne a') = a == a'
-  (==) _ _ = False
+    (==) (ThisOne a) (ThisOne a') = a == a'
+    (==) (ThatOne a) (ThatOne a') = a == a'
+    (==) _ _ = False
 
-data EitherOr a b = Hello a
-                  | Goodbye b
-  deriving Show
+data EitherOr a b
+    = Hello a
+    | Goodbye b
+    deriving (Show)
 
 instance (Eq a, Eq b) => Eq (EitherOr a b) where
-  (==) (Hello a) (Hello a') = a == a'
-  (==) (Goodbye a) (Goodbye a') = a == a'
-  (==) _ _ = False
+    (==) (Hello a) (Hello a') = a == a'
+    (==) (Goodbye a) (Goodbye a') = a == a'
+    (==) _ _ = False
 
 f :: RealFrac a => a
 f = 1.0

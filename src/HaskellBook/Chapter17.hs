@@ -1,6 +1,6 @@
 module HaskellBook.Chapter17 where
 
-import           Data.List (elemIndex)
+import Data.List (elemIndex)
 
 added :: Maybe Integer
 added = fmap (+ 3) (lookup 3 $ zip [1, 2, 3] [4, 5, 6])
@@ -42,19 +42,18 @@ summed :: Maybe Integer
 summed = sum <$> ((,) <$> x' <*> y'')
 
 newtype Identity a = Identity a
-  deriving (Eq, Ord, Show)
+    deriving (Eq, Ord, Show)
 
 instance Functor Identity where
-  fmap f (Identity a) = Identity (f a)
+    fmap f (Identity a) = Identity (f a)
 
 instance Applicative Identity where
-  pure f = Identity f
+    pure f = Identity f
 
-  Identity f <*> Identity a = Identity (f a)
+    Identity f <*> Identity a = Identity (f a)
 
 bla = const <$> Just "Hello" <*> Just "World"
 
 bla' = (,,,) <$> Just 90 <*> Just 10 <*> Just "Tierness" <*> Just [1, 2, 3]
 
 bla'' = pure (.) <*> [(+ 1)] <*> [(* 2)] <*> [1, 2, 3]
-

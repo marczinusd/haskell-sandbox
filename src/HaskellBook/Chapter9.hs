@@ -6,8 +6,8 @@ myWords :: String -> [String]
 myWords "" = []
 myWords (' ' : xs) = myWords $ dropWhile isSpace xs
 myWords sentence =
-  [takeWhile notSpace sentence]
-    ++ myWords (dropWhile notSpace sentence)
+    [takeWhile notSpace sentence]
+        ++ myWords (dropWhile notSpace sentence)
   where
     notSpace = not . isSpace
 

@@ -49,9 +49,10 @@ sndString :: [Char] -> [Char]
 sndString x = x ++ " over the rainbow"
 
 sing :: [Char]
-sing = if x > y
-       then fstString x
-       else sndString y
+sing =
+    if x > y
+        then fstString x
+        else sndString y
   where
     x = "Singin"
 
@@ -59,10 +60,10 @@ sing = if x > y
 
 main :: IO ()
 main = do
-  print $ 1 + 2
-  print 10
-  print (negate $ -1)
-  print ((+) 0 blah)
+    print $ 1 + 2
+    print 10
+    print (negate $ -1)
+    print ((+) 0 blah)
   where
     blah = negate 1
 

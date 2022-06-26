@@ -5,13 +5,13 @@ notThe "the" = Nothing
 notThe a = Just a
 
 split :: String -> [String]
-split (' ':xs) = split $ dropWhile (== ' ') xs
-split word@(x:xs) = takeWhile (/= ' ') word:split (dropWhile (/= ' ') xs)
+split (' ' : xs) = split $ dropWhile (== ' ') xs
+split word@(x : xs) = takeWhile (/= ' ') word : split (dropWhile (/= ' ') xs)
 split "" = []
 
 replaceThe :: String -> String
-replaceThe ('t':'h':'e':xs) = replaceThe ("a" ++ xs)
-replaceThe (x:xs) = x:replaceThe xs
+replaceThe ('t' : 'h' : 'e' : xs) = replaceThe ("a" ++ xs)
+replaceThe (x : xs) = x : replaceThe xs
 replaceThe "" = ""
 
 vowels :: [Char]
@@ -24,18 +24,20 @@ vowelCount :: String -> Int
 vowelCount s = length $ filter isVowel s
 
 newtype Word' = Word' String
-  deriving (Eq, Show)
+    deriving (Eq, Show)
 
 mkWord :: String -> Maybe Word'
-mkWord x = if vCount > ((length x) - vCount)
-           then Nothing
-           else Just (Word' x)
+mkWord x =
+    if vCount > ((length x) - vCount)
+        then Nothing
+        else Just (Word' x)
   where
     vCount = vowelCount x
 
-data Nat = Zero
-         | Succ Nat
-  deriving (Eq, Show)
+data Nat
+    = Zero
+    | Succ Nat
+    deriving (Eq, Show)
 
 natToInteger :: Nat -> Integer
 natToInteger Zero = 0
@@ -43,15 +45,15 @@ natToInteger (Succ a) = 1 + natToInteger a
 
 integerToNat :: Integer -> Maybe Nat
 integerToNat x
-  | x > 0 = Just (integerToNat' (x - 1))
-  | x == 0 = Just (Succ Zero)
-  | otherwise = Nothing
+    | x > 0 = Just (integerToNat' (x - 1))
+    | x == 0 = Just (Succ Zero)
+    | otherwise = Nothing
 
 integerToNat' :: Integer -> Nat
 integerToNat' x
-  | x > 0 = Succ (integerToNat' (x - 1))
-  | x == 0 = Succ Zero
-  | otherwise = Zero
+    | x > 0 = Succ (integerToNat' (x - 1))
+    | x == 0 = Succ Zero
+    | otherwise = Zero
 
 isJust :: Maybe a -> Bool
 isJust (Just a) = True
@@ -70,7 +72,7 @@ fromMaybe a Nothing = a
 fromMaybe _ (Just a) = a
 
 listToMaybe :: [a] -> Maybe a
-listToMaybe (x:_) = Just x
+listToMaybe (x : _) = Just x
 listToMaybe [] = Nothing
 
 maybeToList :: Maybe a -> [a]
@@ -78,22 +80,23 @@ maybeToList Nothing = []
 maybeToList (Just a) = [a]
 
 catMaybes :: [Maybe a] -> [a]
-catMaybes ((Just a):xs) = a:catMaybes xs
-catMaybes (Nothing:xs) = catMaybes xs
+catMaybes ((Just a) : xs) = a : catMaybes xs
+catMaybes (Nothing : xs) = catMaybes xs
 catMaybes [] = []
 
 flipMaybe :: [Maybe a] -> Maybe [a]
-flipMaybe xs = if any isNothing xs
-               then Nothing
-               else Just (catMaybes xs)
+flipMaybe xs =
+    if any isNothing xs
+        then Nothing
+        else Just (catMaybes xs)
 
 myIterate :: (a -> a) -> a -> [a]
-myIterate f a = a:myIterate f (f a)
+myIterate f a = a : myIterate f (f a)
 
 myUnfoldr :: (b -> Maybe (a, b)) -> b -> [a]
 myUnfoldr f b = case f b of
-  Just (a, b) -> a:myUnfoldr f b
-  Nothing     -> []
+    Just (a, b) -> a : myUnfoldr f b
+    Nothing -> []
 
 betterIterate :: (a -> a) -> a -> [a]
 betterIterate f a = myUnfoldr (\x -> Just (a, f a)) (f a)
